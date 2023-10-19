@@ -1,0 +1,20 @@
+git init
+gir add README.MD
+git commit -m "first commit"
+git branch -M main
+
+git push -u origin main
+
+// si existe 
+
+git remote remove origin
+
+git remote add origin https://github.com/Chelo21/proyectoEmpresa.git
+git branch -M main
+git push -u origin main
+
+token: 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
+
+Chelo21
+chelo_2023
+ortamar@gmail.com
