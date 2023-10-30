@@ -1,10 +1,11 @@
 
 import { Routes, Route, BrowserRouter } from "react-router-dom"
-import Cabecera from './Components/Cabecera'
-import './App.css'
+
 import { Empleados } from "./Components/Empleados/Empleados"
 import { Home } from "./Components/Home/home"
 
+import Layout from "./Components/Menu/Layout"
+import './App.css';
 
 function App() {
 
@@ -12,7 +13,8 @@ function App() {
   return (
    
       <BrowserRouter>
-      <Cabecera/>
+      <Layout/>
+   
       <Routes>
 <Route path="/" element={<Home/>} />
 <Route path="/empleados" element={<Empleados/>} />
