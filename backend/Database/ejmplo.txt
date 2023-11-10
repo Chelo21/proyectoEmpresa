@@ -1,0 +1,32 @@
+YYYY-MM-DD HH:MM:SS
+
+Debemos respetar el orden:
+
+YYYY = 4 dígitos para el año.
+MM = 2 dígitos para el mes (01=enero, etc.)
+DD = 2 dígitos para el día del mes (01 a 31)
+Un espacio para separar la fecha de la hora.
+hh = 2 dígitos para la hora (00 a 23)
+mm = 2 dígitos para los minutos (00 a 59)
+ss = 2 dígitos para los segundos (00 a 59)
+
+............................................
+
+
+
+select * from empleados order by fechaingreso desc;
+select * from empleados where fechaingreso>='2000-01-01' order by fechaingreso;
+drop table if exists asistencia;
+create table asistencia(
+  dni text,
+  fechahora text,
+  primary key (dni, fechahora)
+);
+insert into asistencia(dni, fechahora) values ('11111111', '2018-09-14 08:00:00');
+select dni, date(fechahora) from asistencia;
+select dni, time(fechahora) from asistencia;
+select * from asistencia where time(fechahora)>='00:00:00' and time(fechahora)<='12:00:00';
+select * from asistencia where time(fechahora) between '00:00:00' and '12:00:00';
+select * from asistencia where time(fechahora) between '00:00:00' and '12:00:00' order by time(fechahora);
+
+insert into empleados(nombre, fechaingreso) values ('Berrotaran mario', date('now')); 
