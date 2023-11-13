@@ -1,17 +1,28 @@
 const express = require("express");
+
 const cors = require("cors");
-const db = require("./Database/db");
-const { createClientes } = require("./Models/createClientes");
-const { createProductos } = require("./Models/createProductos");
+const bodyParser = require("body-parser");
+
+const { db, createTables } = require("./Database/db.js");
+// import { createClientes } from "./Models/createClientes";
+const { createProductos } = require("./Models/createProductos.js");
+const { insertarProd } = require("./Insertar/insertarProd.js");
 
 const app = express();
 const PORT = 3333;
-// db();
-createClientes();
-createProductos();
-app.use(express.urlencoded({ extended: false }));
+// openDb();
+// createClientes();
+// createProductos();
+
+createTables();
+
+insertarProd();
+
+// app.use(express.urlencoded({ extended: false }));
 
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // app.use(require("./routes"));
 
