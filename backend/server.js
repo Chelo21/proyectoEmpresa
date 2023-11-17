@@ -7,6 +7,7 @@ const { db, createTables } = require("./Database/db.js");
 // import { createClientes } from "./Models/createClientes";
 const { createProductos } = require("./Models/createProductos.js");
 const { insertarProd } = require("./Insertar/insertarProd.js");
+const { insertarClientes } = require("./Insertar/insertarClientes.js");
 
 const app = express();
 const PORT = 3333;
@@ -16,8 +17,8 @@ const PORT = 3333;
 
 createTables();
 
-insertarProd();
-
+// insertarProd();
+insertarClientes();
 // app.use(express.urlencoded({ extended: false }));
 
 app.use(cors());

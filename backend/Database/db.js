@@ -25,8 +25,15 @@ const createTables = () => {
   //===
 
   db.run(
-    "CREATE TABLE IF NOT EXISTS clientes ( id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT, idade INTEGER, cpf INTEGER, email VARCHAR (50) )"
+    "CREATE TABLE IF NOT EXISTS clientes (idCli	INTEGER PRIMARY KEY AUTOINCREMENT, nombreCli	TEXT, direccionCli TEXT, telCli	TEXT, celCli	TEXT, fecNacCli	TEXT, ciudadCli	TEXT, depCli	TEXT, fechaIngCli	TEXT, cedIDCli	TEXT, activoCli	INTEGER DEFAULT 1, fechaModCli	TEXT, Timestamp	DATETIME DEFAULT CURRENT_TIMESTAMP)"
   );
+  // db.run(
+  //   "CREATE TABLE IF NOT EXISTS clientes (idCli	INTEGER PRIMARY KEY AUTOINCREMENT, nombreCli	TEXT, direccionCli	REAL, telCli	TEXT, celCli	TEXT, fecNacCli	TEXT, ciudadCli	TEXT, depCli	TEXT, fechaIngCli	TEXT, cedIDCli	TEXT, activoCli	INTEGER DEFAULT 1, fechaModCli	TEXT, Timestamp	DATETIME DEFAULT CURRENT_TIMESTAMP)"
+  // );
+
+  // db.run(
+  //   "CREATE TABLE IF NOT EXISTS clientes ( id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT, idade INTEGER, cpf INTEGER, email VARCHAR (50) )"
+  //   );
 };
 
 // export default { db, createTables };
