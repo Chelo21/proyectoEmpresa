@@ -17,14 +17,19 @@ const PORT = 3333;
 createTables();
 
 // insertarProd();
-insertarClientes();
+// insertarClientes();
 // Apply middleware
 // Note: Keep this at the top, above routes
 app.use(cors());
-app.use(cors());
-app.use(helmet());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+// app.use(cors());
+// app.use(helmet());
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
+// app.use(express.json());
+app.use(express.json()); // Used to parse JSON bodies
+app.use(express.urlencoded()); // Parse URL-encoded bodies using query-string library
+// or
+app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies using qs libra
 
 //rutas
 app.use("/productos", routesProductos);
