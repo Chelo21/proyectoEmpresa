@@ -1,0 +1,54 @@
+/* https://www.youtube.com/watch?v=etBlGtM4d_w&ab_channel=JatinderPalSingh */
+
+*{
+margin: 0px;
+padding: 0px;
+
+}
+
+#menu ul {
+    list-style: none;
+}
+
+#menu ul li {
+    /* background-image: url(); */
+
+    /* border: 1px solid white; */
+    margin: 2px;
+    width: 120px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    float: left;
+    position: relative;
+    /* border-radius: 8px; */
+
+}
+
+#menu ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+#menu ul li a:hover {
+    background-color: green !important;
+    border-radius: 8px;
+}
+
+#menu ul ul {
+    position: absolute;
+    display: none;
+}
+
+#menu ul li:hover > ul {
+    display: block;
+}
+
+#menu ul ul ul{
+    margin-left: 120px;
+    top: 0px;
+
+
+}
+
