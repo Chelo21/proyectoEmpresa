@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import "./Footer.css";
+
 var date, time, ahora, hours, minutes, seconds, dia, mes, ano, year;
 const Footer = () => {
   const [today, setDate] = useState(""); // Save the current date to be able to trigger an update
@@ -42,7 +44,32 @@ const Footer = () => {
     };
   }, []);
 
-  return <footer>{`Copyright ©${year} Chelo Code ${horas} ${today} `}</footer>;
+  return (<footer>
+   <ul>
+    <li>Copyright © Chelo Code {year}</li>
+    <li>{today}</li>
+    <li className="footer_hora"><strong>{horas}</strong></li>
+       </ul>
+
+    
+    
+    </footer>);
 };
+// {`Copyright © Upbeat Code ${year}`}}
 
 export default Footer;
+
+// `Copyright ©${year} Chelo Code
+// <div>
+// ${horas}
+// </div>
+// ${today} `
+
+{/* <div className="horas">{horas}</div>
+
+<div>
+  <strong>Copyright ©</strong>
+</div>
+<div>{year}</div>
+
+<div>{today}</div> */}

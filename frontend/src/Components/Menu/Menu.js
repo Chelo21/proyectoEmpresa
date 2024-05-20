@@ -5,6 +5,10 @@ import { Link } from "react-router-dom";
 
 import SubMenu from "./SubMenu";
 
+// How to create Dropdown Menu with Submenus in Html and CSS (Hindi)
+// https://www.youtube.com/watch?v=etBlGtM4d_w
+// How to create navigation bar with search box?
+// https://www.youtube.com/watch?v=qBTbuUtjxoE
 export const Menu = () => {
   const depthLevel = 0;
   const [esSubMenu, setEsSubMenu] = useState(false);

@@ -10,7 +10,7 @@ const SubMenu = ({ subMenuItem, depthLevel }) => {
   return (
     <ul className={`dropdown ${dropdownClass}`}>
       {subMenuItem.map((item) => {
-      console.log(item);
+      // console.log(item);
         return (
           <li key={item.id} className="menu-items">
              <Link to={item.url} className={`nav__link `}>
