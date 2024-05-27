@@ -1,0 +1,98 @@
+.paginacion {
+  width: 100%;
+  height: 30px;
+  background-color: burlywood;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding-left: 15px;
+}
+
+.selector input[type="text"] {
+  width: 150px;
+  height: 30px;
+  background-color: aqua;
+  position: relative;
+  padding-right: 20px;
+}
+
+.exis_input {
+  cursor: pointer;
+  position: absolute;
+
+  font-weight: 400;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12px;
+
+  transform: translateX(-10px);
+  z-index: 10;
+}
+
+.selectorOP {
+  background-color: darkorange;
+  width: 170px;
+  cursor: pointer;
+}
+.selectorA {
+  font-size: 25px;
+}
+
+.sectorPaginaTotal {
+  /* width: 250px; */
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: darkcyan;
+}
+.sectorPaginaTotal .boton {
+  color: black;
+  /* float: center; */
+  width: 25px;
+  height: 100%;
+  border: 1px solid blue;
+  border-radius: 20%;
+  text-align: center;
+  /* align-content: safe; */
+  /* justify-items: center; */
+}
+
+.sectorPaginaTotal .boton > span {
+  font-size: 25px;
+  font-size: 25px;
+
+  font-weight: bold;
+}
+
+.sectorPaginaTotal .boton:hover {
+  background-color: burlywood;
+}
+
+/* selectores ........................................} */
+.contadorPagina{
+  width: 70px;
+  background-color: coral;
+  height: 30px;
+}
+.contadorPagina input[type="number"] {
+  width: 60px;
+  height: 100%;
+  text-align: right;
+  overflow: hidden;
+  /* background-color: coral; */
+}
+
+
+.contadorPaginaDivisor{
+font-size: 25px;
+font-weight: 600;
+}
+.contadorPaginaTotal{
+  font-size: 20px;
+  font-weight: 600;
+  width: 60px;
+  margin-right: 10px;
+  margin-left: 5px;
+
+}
