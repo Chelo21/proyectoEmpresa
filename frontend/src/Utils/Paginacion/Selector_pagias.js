@@ -47,14 +47,11 @@ const [pagianaActual, setPagianaActual] = useState(1500);
           onChange={(e) => handeSelect(e.target.value)}
         >
           {valores.map((item, index) => (
-            // if(selector===item)(
-            // <option key={index} value={item}>{item}</option>
-
-            // )else (
+          
             <option key={index} value={item}>
               {item}
             </option>
-            // )
+         
           ))}
         </select>
       </>

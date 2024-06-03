@@ -7,9 +7,11 @@ import Layout from "./Components/Menu/Layout";
 import "./App.css";
 import { Productos } from "./Components/Productos/Productos";
 import Ventas from "./Components/Ventas/Ventas";
+import { ContadorProvider } from "./Provaider/ContadorProvider";
 
 function App() {
   return (
+    <ContadorProvider >    
     <BrowserRouter>
       <Layout />
 
@@ -22,6 +24,8 @@ function App() {
         <Route path="*" element={<h1>Error no hay datos</h1>} />
       </Routes>
     </BrowserRouter>
+    </ContadorProvider>
+
   );
 }
 

@@ -1,43 +1,31 @@
+/* eslint-disable no-unused-vars */
 // querySelector
 // https://www.youtube.com/watch?v=WtTLkE1SQFg
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Paginacion.css";
 import Selector_pagias from "./Selector_pagias";
+import { contadorContext } from "../../Provaider/contadorContext";
 
-/*
-! campos los productos
-valoresPaginacion rangos de paginacion
- cambioCampo  cambio campo:valor
- cambioPaginacion cuando cambia paginacion
- opVisible  si es visible el paginador
- selector valor del selector campos
-  cambioSelector cambia el selector
-*/
+const Paginacion = ({}) => {
+  const {
+    valoresPaginacion,
+    cambiaValoresPaginacion,
+    selectorPaginacion,
+    cambiaSelectorPaginacion,
+    ListaCampos,
+    setListaCampos,
+    valoresCampo,
+    setValoresCampo,
+  } = useContext(contadorContext);
 
-const Paginacion = ({
-  campos,
-  valoresPaginacion,
-  cambioCampo,
-  cambioPaginacion,
-  opVisible,
-  selector,
-  cambioSelector,
-}) => {
-  // console.log(`campos..`, campos);
-  // console.log(`opcioes...`, valoresPaginacion)
-  const [valor, setValor] = useState(""); //camia valor del imput
-  const [valoresCampo, setValoresCampo] = useState({}); // relacion nombreCampo:valor
   const [actualizaC, setActualizaC] = useState(true); // bloquear acutalizar el registro de campos en busqueda
   const [valorInput, setValorInput] = useState("");
-  const [valorCampoInput, setValorCampoInput] = useState("");
-
-  // console.log(`inicio de paginacion `,selector)
 
   const acualizaCampoBusqueda = () => {
     let camposA = []; //variable intermedia valoresCampo
-    if (campos && actualizaC) {
-      campos.map((item) => {
+    if (ListaCampos && actualizaC) {
+      ListaCampos.map((item) => {
         if (!item.noOP) {
           setValoresCampo((prevInputValues) => ({
             ...prevInputValues,
@@ -106,8 +94,8 @@ const Paginacion = ({
       </div>
       <div className="selectorOP">
         <select onChange={(e) => handleChangeSelect(e)} className="selectorA">
-          {campos &&
-            campos.map((el, index) =>
+          {ListaCampos &&
+            ListaCampos.map((el, index) =>
               !el.noOP ? (
                 <option key={index} value={el.campo} name={el.campo}>
                   {el.nombre}
@@ -119,19 +107,26 @@ const Paginacion = ({
         </select>
       </div>
       <div className="paginas">
-        <Selector_pagias
+        {/* <Selector_pagias
           valores={valoresPaginacion}
           cambio={cambio}
           selector={selector}
           cambioSelector={cambioSelector}
-        />
+        /> */}
       </div>
-     
     </div>
   );
 };
 
 export default Paginacion;
+
+// console.log(`campos..`, campos);
+// console.log(`opcioes...`, valoresPaginacion)
+// const [valor, setValor] = useState(""); //camia valor del imput
+
+// const [valorCampoInput, setValorCampoInput] = useState("");
+
+// console.log(`inicio de paginacion `,selector)
 
 /*
 document.querySelectorAll('#campo') todos los que coincidan
@@ -144,4 +139,13 @@ elements = document.getElementsByTagName(name);
 document.getElementById, document.getElementtagName son dinamicos
 document.querySelector es statico
 
+*/
+/*
+! campos los productos
+valoresPaginacion rangos de paginacion
+ cambioCampo  cambio campo:valor
+ cambioPaginacion cuando cambia paginacion
+ opVisible  si es visible el paginador
+ selector valor del selector campos
+  cambioSelector cambia el selector
 */

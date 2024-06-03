@@ -8,21 +8,74 @@
 // https://www.youtube.com/watch?v=i4GgO4vZieg
 // INPUT SELECT PERSONALIZADO CON REACT SELECT | REACT JS
 // https://www.youtube.com/watch?v=3lpVqgLh7vw
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Cabezera from "./Cabezera";
 import LoadSpinner from  "../../Comun/LoadSpinner/LoadSpinner";
 import Paginacion from "../../Utils/Paginacion/Paginacion";
+import {  contadorContext} from "../../Provaider/contadorContext";
+
 
 
 
 export const Productos = () => {
-  const [selector, setSelector] = useState(100);
-  const [selectorIndice, setSelectorIndice] = useState(0);
-  const [opVisible, setopVisible] = useState(true);
+  const {
+    valoresPaginacion, 
+    cambiaValoresPaginacion,
+    selectorPaginacion, 
+    cambiaSelectorPaginacion,
+    ListaCampos, 
+    setListaCampos,
+    } = useContext(contadorContext)
+
   var arrayNumbers = [5,10,20,30,40,50,60,70,80,90,100,200,300,400]
-  const [valoresPaginacion, setValoresPaginacion] = useState(arrayNumbers);
-  const [valorPagina, setValorPagina] = useState(0); //indice de pagina
-  const [valorTotalPaginas, setValorTotalPaginas] = useState(0); //total de paginas
+  const LProductos = [
+    {
+      id: 1,
+      nombre: "Codigo",
+      campo: "idProd",
+      class: "codigo"
+    },
+    {
+      id: 2,
+      nombre: "Nombre",
+      campo: "nombreProd",
+      class: "campo"
+    },
+    {
+      id: 3,
+      nombre: "Precio",
+      campo: "precioProd",
+      class: "campo"
+    },
+    
+    {
+      id: 4,
+      nombre: "Stock",
+      campo: "stockProd",
+      class: "campo"
+    },
+    {
+      id: 5,
+      nombre: "Opciones",
+      campo: "",
+      class: "opciones",
+      noOP:"yes"
+    },
+  ];
+
+  useEffect(() => {
+    
+    cambiaValoresPaginacion(arrayNumbers)
+  cambiaSelectorPaginacion(100)
+  setListaCampos(LProductos) 
+}, []);
+
+
+
+// const [selector, setSelector] = useState(100);
+ 
+
+
   const [fruits, setFruits] = useState(['Banana', 'Fresa', 'Durazno']);
   // setOpciones([5,10,20,30,40,50,60,70,80,90,100,200,300,400]);
   // var idProd,
@@ -41,40 +94,7 @@ export const Productos = () => {
     
 //   };
 // }, []);
-const LProductos = [
-  {
-    id: 1,
-    nombre: "Codigo",
-    campo: "idProd",
-    class: "codigo"
-  },
-  {
-    id: 2,
-    nombre: "Nombre",
-    campo: "nombreProd",
-    class: "campo"
-  },
-  {
-    id: 3,
-    nombre: "Precio",
-    campo: "precioProd",
-    class: "campo"
-  },
-  
-  {
-    id: 4,
-    nombre: "Stock",
-    campo: "stockProd",
-    class: "campo"
-  },
-  {
-    id: 5,
-    nombre: "Opciones",
-    campo: "",
-    class: "opciones",
-    noOP:"yes"
-  },
-];
+
 //  ! cambioCampo son los cambios de los valores de busqueda
 const cambioCampo =(valor) => {
 console.log(valor)
@@ -83,7 +103,7 @@ console.log(valor)
 // cambioPaginacion es cuando cambia el valor de paginacion
 const cambioPaginacion =(valor) => {
   if(selector!==valor){
-    setSelector(valor)
+    cambiaSelectorPaginacion(valor)
 
     console.log(`cambio en cambioPaginacion: `,valor)
   }
@@ -97,7 +117,7 @@ const cambioPaginacion =(valor) => {
 
 const cambioSelector = (value) => {
   console.log(`valor selector en productos`,value)
-  setSelector(value)
+  // setSelector(value)
 }  
 /*
 ! campos los productos
@@ -112,12 +132,12 @@ valoresPaginacion rangos de paginacion
 */
 return <div>
     <Paginacion
-     campos={LProductos} 
+    
      valoresPaginacion={valoresPaginacion}
       cambioCampo
        cambioPaginacion 
        opVisible 
-       selector={selector} 
+       selector={selectorPaginacion} 
        cambioSelector={cambioSelector}
         />
     {/* {<Cabezera campos={LProductos} />} */}

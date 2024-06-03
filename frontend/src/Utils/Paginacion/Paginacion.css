@@ -50,7 +50,8 @@
   color: black;
   /* float: center; */
   width: 25px;
-  height: 100%;
+  height: 30px;
+
   border: 1px solid blue;
   border-radius: 20%;
   text-align: center;
@@ -59,8 +60,9 @@
 }
 
 .sectorPaginaTotal .boton > span {
-  font-size: 25px;
-  font-size: 25px;
+  font-size: 20px;
+  font-weight: 400;
+
 
   font-weight: bold;
 }
