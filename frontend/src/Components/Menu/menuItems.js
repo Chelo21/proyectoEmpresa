@@ -20,7 +20,7 @@ export const menuItems = [
   {
     id: 2,
     title: "Productos",
-    url: "!#",
+    url: "",
     icon: <RxIcons.RxSketchLogo />,
     subMenu: [
       {
@@ -65,7 +65,7 @@ export const menuItems = [
   {
     id: 3,
     title: "Empleados",
-    url: "empleados",
+    url: "",
     icon: <BiIcons.BiUser />,
     subMenu: [
       {

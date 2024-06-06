@@ -7,24 +7,25 @@ import Layout from "./Components/Menu/Layout";
 import "./App.css";
 import { Productos } from "./Components/Productos/Productos";
 import Ventas from "./Components/Ventas/Ventas";
-import { ContadorProvider } from "./Provaider/ContadorProvider";
+import  ContadorContextProvider from "./Provaider/ContadorContext";
 
 function App() {
   return (
-    <ContadorProvider >    
+    <ContadorContextProvider >    
     <BrowserRouter>
       <Layout />
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/empleados" element={<Empleados />} />
-        <Route path="/productos" element={<Productos />} />
-        <Route path="/ventas" element={<Ventas />} />
-
+    
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/empleados" element={<Empleados />} />
+        <Route exact path="/productos" element={<Productos />} />
+        <Route exact path="/ventas" element={<Ventas />} />
+        <Route component={<Home />} />
         <Route path="*" element={<h1>Error no hay datos</h1>} />
       </Routes>
     </BrowserRouter>
-    </ContadorProvider>
+    </ContadorContextProvider>
 
   );
 }
