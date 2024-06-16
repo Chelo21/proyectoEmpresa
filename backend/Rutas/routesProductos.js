@@ -20,6 +20,7 @@ router.get("/ultimo", Productos.lastIDProd);
 router.get("/existe/:id", Productos.existeIDProd);
 router.get("/total/:cont", Productos.totalProd);
 router.get("/busqueda", Productos.allWhere);
+router.post("/busqueda", Productos.allWhere);
 
 router.post("/nuevo-producto", Productos.newProduct);
 

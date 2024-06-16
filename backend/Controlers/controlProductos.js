@@ -138,13 +138,14 @@ exports.totalProd = async (req, res) => {
 exports.allWhere = async (req, res) => {
   // findID(9).then(datos=>console.log(datos))
 
-  
+  console.log(`el body..`,req.body)
   let promise = new Promise(function (resolve, reject) {
     
     console.log("entro en busqueda")
-    console.log(findID(9)) 
+
+    console.log(`entra body... `,req.body) 
     var todo = [];
-    var query, queryA;
+    var query, queryA,comodin=` OR`,activoProdT;
     var idProd,
       nombreProd,
       fechaIngProd,
@@ -157,7 +158,8 @@ exports.allWhere = async (req, res) => {
       maxLines,
       pagLines,
       limit,
-      offset;
+      offset,
+      tipo_Busqueda=0;
     // console.log(req.body);
 
     idProd = req.body.idProd;
@@ -171,6 +173,14 @@ exports.allWhere = async (req, res) => {
     minProd = req.body.minProd;
     pagLines = req.body.pagLines; // número de páginas
     maxLines = req.body.maxLines; // líneas por páginas
+    tipo_Busqueda = req.body.tipo_Busqueda; // líneas por páginas
+    
+if(activoProd===0 || activoProd===1){
+  activoProdT=true
+} else {
+  activoProdT=false
+}
+
     if (pagLines < 0 || pagLines == "") {
       pagLines = 0;
     }
@@ -191,32 +201,43 @@ exports.allWhere = async (req, res) => {
       offset = "";
     }
 
+    console.log(`en if..`,tipo_Busqueda)
+if(tipo_Busqueda==1){
+  console.log(`entro en and`)
+  comodin = ` AND`;
+}else {
+  console.log(`entro en OR`)
+  comodin=` OR`;
+}
+
     queryA = "";
-    query = "SELECT * FROM productos Where";
-    if (idProd) queryA += ` idProd LIKE '${idProd}'`;
 
-    if (nombreProd && queryA.length > 0) queryA += ` OR`;
-    if (nombreProd) queryA += ` nombreProd LIKE '%${nombreProd}%'`;
 
-    if (queryA.length > 0 && fechaIngProd) queryA += ` OR`;
-    if (fechaIngProd) queryA += ` fechaIngProd LIKE '%${fechaIngProd}%'`;
-    if (queryA.length > 0 && precioProd) queryA += ` OR`;
-    if (precioProd) queryA += ` precioProd LIKE '${precioProd}%'`;
-    if (queryA.length > 0 && monedaProd) queryA += ` OR`;
+    query = "SELECT * FROM articulos Where";
+    if (idProd) {queryA += ` idProd LIKE '${idProd}'`;}
 
-    if (monedaProd) queryA += ` monedaProd LIKE '%${monedaProd}%'`;
-    if (queryA.length > 0 && idProv) queryA += ` OR`;
-    if (idProv) queryA += ` idProv LIKE '%${idProv}%'`;
-    if (queryA.length > 0 && activoProd) queryA += ` OR`;
+    if (nombreProd && queryA.length > 0) {queryA += comodin;}
+    if (nombreProd){ queryA += ` nombreProd LIKE '%${nombreProd}%'`;}
 
-    if (activoProd) queryA += ` activoProd LIKE '${activoProd}'`;
-    if (queryA.length > 0 && stockProd) queryA += ` OR`;
-    if (stockProd) queryA += ` stockProd LIKE '${stockProd}'`;
+    if (queryA.length > 0 && fechaIngProd) {queryA += comodin;}
+    if (fechaIngProd) {queryA += ` fechaIngProd LIKE '%${fechaIngProd}%'`;}
+    if (queryA.length > 0 && precioProd) {queryA += comodin;}
+    if (precioProd) {queryA += ` precioProd LIKE '${precioProd}%'`;}
+    if (queryA.length > 0 && monedaProd) {queryA += comodin;}
 
-    if (queryA.length > 0 && minProd) queryA += ` OR`;
-    if (minProd) queryA += ` minProd LIKE '${minProd}'`;
+    if (monedaProd) {queryA += ` monedaProd LIKE '%${monedaProd}%'`;}
+    if (queryA.length > 0 && idProv) {queryA += comodin;}
+    if (idProv) {queryA += ` idProv LIKE '%${idProv}%'`;}
+    if (queryA.length > 0 && activoProdT ) {queryA += comodin;}
+
+    if (activoProdT){ queryA += ` activoProd LIKE '${activoProd}'`;}
+    if (queryA.length > 0 && stockProd) {queryA += comodin;}
+    if (stockProd) {queryA += ` stockProd LIKE '${stockProd}'`;}
+
+    if (queryA.length > 0 && minProd) {queryA += comodin;}
+    if (minProd) {queryA += ` minProd LIKE '${minProd}'`;}
     console.log(req.body.idProd);
-    // console.log(queryA);
+    console.log(queryA);
     console.log(`largo `, queryA.length);
     // ===== cargo toda la consulta =================
     if (queryA.length > 0) {
@@ -225,7 +246,7 @@ exports.allWhere = async (req, res) => {
       query += queryA;
       // console.log(`el query: `, query);
     } else {
-      return reject.json({ mensaje: "no hay datos: ", queryA });
+      return reject({ mensaje: "no hay datos: ", queryA });
     }
 
     // =========================== consulta
@@ -244,9 +265,9 @@ exports.allWhere = async (req, res) => {
     // console.log(row);
     res.json({ datos: row })
 
-  } 
-
-);
+  }).catch((err) =>{
+    res.json({ error: err })
+  })
 
   
 };

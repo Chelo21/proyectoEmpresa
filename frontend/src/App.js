@@ -19,10 +19,11 @@ function App() {
     
         <Route exact path="/" element={<Home />} />
         <Route exact path="/empleados" element={<Empleados />} />
-        <Route exact path="/productos" element={<Productos />} />
+        <Route exact path="/productos/*" element={<Productos />} />
         <Route exact path="/ventas" element={<Ventas />} />
         <Route component={<Home />} />
         <Route path="*" element={<h1>Error no hay datos</h1>} />
+        
       </Routes>
     </BrowserRouter>
     </ContadorContextProvider>
