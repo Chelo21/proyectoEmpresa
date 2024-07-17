@@ -1,0 +1,53 @@
+.cabezera{
+width: 100%;
+/* background-color: blue; */
+display: flex;
+padding-left: 20px;
+
+}
+
+.cabezera .codigo{
+    background-color: rgb(108, 248, 236);
+color: rgb(38, 122, 13);
+size: 20px;
+width: 150px;
+border: 1px solid rgb(36, 17, 209);
+text-align: center;
+text-transform: uppercase;
+font-weight: bold;
+}
+
+.cabezera .campo{
+background-color: rgb(136, 255, 0);
+color: rgb(38, 122, 13);
+size: 20px;
+width: 350px;
+border: 1px solid rgb(36, 17, 209);
+text-align: center;
+text-transform: uppercase;
+font-weight: bold;
+
+}
+
+
+
+.cabezera .opciones{
+    background-color: rgb(108, 248, 236);
+color: rgb(38, 122, 13);
+size: 20px;
+width: 220px;
+border: 1px solid rgb(36, 17, 209);
+text-align: center;
+text-transform: uppercase;
+font-weight: bold;
+}
+
+
+.spinnerA{
+    /* background-color: aqua; */
+    /* background: violet; */
+    color: rgb(38, 194, 32);
+    height: 180px;
+    width: 180px;
+    left: 150px;
+}

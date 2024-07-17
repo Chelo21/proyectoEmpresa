@@ -1,0 +1,148 @@
+.paginacion {
+  width: 100%;
+  height: 30px;
+  background-color: burlywood;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding-left: 15px;
+}
+/* .selector{
+  width: 500px;
+} */
+.selector input[type="text"] {
+  width: 250px;
+  height: 30px;
+  background-color: aqua;
+  font-size: 20px;
+  position: relative;
+  padding-right: 10px;
+}
+
+.exis_input {
+  cursor: pointer;
+  position: absolute;
+
+  font-weight: 400;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12px;
+
+  transform: translateX(-10px);
+  z-index: 10;
+}
+
+.selectorOP {
+  background-color: rgb(44, 223, 44);
+  width: 250px;
+  cursor: pointer;
+  text-align: end;
+}
+.selectorA {
+  font-size: 23px;
+  overflow-x: hidden;
+}
+
+.lupa_marco{
+width: 30px;
+height: 30px;
+background-color: rgb(204, 76, 198);
+border: 1px solid #fff;
+}
+.lupa_marco:hover{
+  background-color: crimson;
+}
+
+.lupa{
+  width: 25px;
+  height: 25px;
+  /* background-color: rgb(208, 233, 67); */
+}
+.sectorPaginaTotal {
+  /* width: 250px; */
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: darkcyan;
+}
+.sectorPaginaTotal .boton {
+  color: black;
+  /* float: center; */
+  width: 25px;
+  height: 30px;
+
+  border: 1px solid blue;
+  border-radius: 20%;
+  text-align: center;
+  /* align-content: safe; */
+  /* justify-items: center; */
+}
+
+.sectorPaginaTotal .boton > span {
+  font-size: 20px;
+  font-weight: 400;
+
+
+  font-weight: bold;
+}
+
+.sectorPaginaTotal .boton:hover {
+  background-color: burlywood;
+}
+
+/* selectores ........................................} */
+
+/* .contadorPagina input[type="number"] {
+  width: 60px;
+  height: 100%;
+  text-align: right;
+  overflow: hidden;
+  /* background-color: coral; */
+/* } */ 
+
+
+
+/* .contadorPaginaTotal{
+  font-size: 20px;
+  font-weight: 600;
+  width: 60px;
+  margin-right: 10px;
+  margin-left: 5px;
+} */
+
+/* selector de pagina................. */
+.contadorPagina{
+  /* width: 120px; */
+  background-color: coral;
+  height: 30px;
+}
+
+
+
+.selector_por_pagina{
+  width: 100px;
+  font-size: 20px;
+  text-align: end;
+}
+
+.contadorPagina input[type="number"]{
+  width: 100px;
+  font-size: 25px;
+  text-align: end;
+  background-color: chartreuse;
+}
+
+.contadorPaginaDivisor{
+font-size: 25px;
+font-weight: 600;
+padding: 0px 5px;
+}
+
+.contadorPaginaTotal{
+  font-size: 20px;
+  font-weight: 600;
+  width: 60px;
+  margin-right: 10px;
+  margin-left: 5px;
+}

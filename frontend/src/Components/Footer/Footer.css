@@ -1,0 +1,69 @@
+/* ==== footer ===== */
+footer{
+  position: fixed;
+  background-color: gray;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px;
+  text-align: center;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.5);
+    font-weight: bold;
+  }
+  
+  footer li{
+height: 30px;
+    padding: 10px 10px;
+align-items: center;
+background-color: #3e56b4;
+
+
+}
+
+
+.footer_hora strong{
+  font-family: monospace;
+  background-color: aqua;
+  padding: 5px 15px;
+  font-size: 20px;
+
+}  
+  .site-footer {
+    display: flex;
+    flex-direction: row;
+    background-color: #26272b;
+height: 50px;
+    padding: 45px 0 20px;
+    font-size: 15px;
+    /* line-height: 24px; */
+    color: #737373;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    color: chartreuse;
+    z-index: 50;
+    align-content: center;
+    }
+
+.horas{
+    /* width: 50px;  */
+   padding: 0px 20px;
+   background-color: brown; 
+    margin-right: 5px;
+   size: 20px;
+
+}
+.nombre_js{
+     /* width: 50px; */
+    background-color: blue;
+}
+
+ /* position: relative;
+  width: 100%;
+  background: #3586ff;
+  min-height: 100px;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row; */
+
+    /* text-wrap: nowrap; */

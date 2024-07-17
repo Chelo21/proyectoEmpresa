@@ -1,0 +1,80 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+
+import { useContext, createContext, useState } from "react";
+
+import { contadorContext } from "./contadorContext";
+
+export const ContadorContextProvider = ({ children }) => {
+  const [listaCampos, setListaCampos] = useState([]); //jsdfj ljsflsjf
+  const [listaValoresCampos, setListaValoresCampos] = useState([]); //[campo valor]
+  
+  const [listaValoresPaginacion, setListaValoresPaginacion] = useState([]); // [5,10,.....]
+  const [valorActualPaginacion, setValorActualPaginacion] = useState(50);
+  
+  const [paginaAcual, setPaginaActual] = useState(0); //pagina actual
+  const [totalPaginas, setTotalPaginas] = useState(0); //total de paginas
+  
+
+//   const [listaSelector, setListaSelector] = useState([]);
+//   const [valoresSelector, setValoresSelector] = useState({}); // relacion nombreCampo:valor
+
+  const cambiaListaCampos = (valores) => {
+    setListaCampos(valores);
+  };
+
+  const cambiaListaValoresCampos = (valor) => {
+    setListaValoresCampos(valor);
+  };
+
+// paginacion.....
+
+const cambiaListaValoresPaginacion = (valor) => {
+  setListaValoresPaginacion(valor);
+};
+
+  const cambiaPagina = (valor) => {
+    valorActualPaginacion(valor);
+  };
+
+  const cambiaTotalPaginas = (valor) => {
+    setTotalPaginas(valor);
+  };
+
+
+  const cambiaValorActualPaginacion = (valor) => {
+    setValorActualPaginacion(valor);
+  };
+
+  const cambiaValoresPaginacion = (valores) => {
+    setValoresPaginacion(valores);
+  };
+
+//   const cambiaListaSelector = (valores) => {
+//     setListaSelector(valores);
+//   };
+
+  return (
+    <contadorContext.Provider
+      value={{
+        listaCampos,
+        setListaCampos,
+        cambiaListaCampos,
+        listaValoresCampos,
+        cambiaListaValoresCampos,
+
+        listaValoresPaginacion,
+        cambiaListaValoresPaginacion,
+        valorActualPaginacion,
+        cambiaValoresPaginacion,
+
+        paginaAcual,
+        cambiaPagina,
+        totalPaginas,
+        cambiaTotalPaginas,
+      }}
+    >
+      {children}
+    </contadorContext.Provider>
+  );
+};

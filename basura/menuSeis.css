@@ -1,0 +1,99 @@
+/* https://www.youtube.com/watch?v=etBlGtM4d_w&ab_channel=JatinderPalSingh */
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.todo{
+  display: flex;
+  /* align-items: flex-start; */
+  background-color: rgba(30, 114, 210, 0.281);
+}
+
+.botones{
+  /* background-color: crimson; */
+  position: absolute;
+color: chartreuse;
+  z-index: 1000;
+right: 0;
+top: 5PX;
+justify-items: center;  
+/* align-items: center; */
+width: 30px;
+cursor: pointer;
+
+}
+#menu {
+  /* background-color: rgb(42, 30, 210); */
+
+}
+
+#menu ul {
+  list-style: none;
+}
+
+#menu ul li {
+  /* background-image: url(); */
+  background-color: rgba(248, 144, 8, 0.774);
+  border: 1px solid white;
+  margin: 2px;
+  width: 120px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+
+  float: left;
+  position: relative;
+  border-radius: 8px;
+}
+
+#menu ul li a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  height: 100%;
+/* text-align: center; */
+/* justify-content: center; */
+
+}
+
+#menu ul li a:hover {
+  background-color: blueviolet !important;
+  /* background-color: green !important; */
+  border-radius: 8px;
+}
+
+#menu ul ul {
+  position: absolute;
+  display: none;
+}
+
+#menu ul li:hover > ul {
+  display: block;
+}
+
+#menu ul ul ul {
+  /* margin-left: 120px; */
+  left: 100%;
+  top: -2px;
+}
+
+.arrow-down{
+    height: 20px;
+    width: 20px;
+    /* align-content: center; */
+margin-top: 5px;
+    padding-left: 5px;
+    /* background-color: aqua; */
+}
+
+.arrow-left{
+  /* position: absolute; */
+  height: 15px;
+  width: 15px;
+  /* align-content: center; */
+margin-top: 5px;
+  padding-left: 5px;
+padding-top: 2px;
+  /* background-color: aqua; */
+}
